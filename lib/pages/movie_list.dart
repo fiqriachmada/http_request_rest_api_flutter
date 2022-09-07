@@ -13,11 +13,11 @@ class MovieList extends StatefulWidget {
 class _MovieListState extends State<MovieList> {
   int moviesCount = 0;
   List movies = [];
-  late HttpService service;
+  HttpService service = HttpService();
 
-  Future<void> initialize() async {
+  Future initialize() async {
     movies = [];
-    movies = await service.getPopularMovies();
+    movies = (await service.getPopularMovies())!;
     setState(() {
       moviesCount = movies.length;
       movies = movies;
@@ -34,6 +34,7 @@ class _MovieListState extends State<MovieList> {
 
   @override
   Widget build(BuildContext context) {
+    final image = "https://image.tmdb.org/t/p/w500";
     return Scaffold(
       appBar: AppBar(
         // ignore: prefer_const_constructors
@@ -49,6 +50,11 @@ class _MovieListState extends State<MovieList> {
             color: Colors.white,
             elevation: 2.0,
             child: ListTile(
+              leading: CircleAvatar(
+                radius: 30,
+                backgroundImage:
+                    NetworkImage(image + movies![position].posterPath),
+              ),
               title: Text(
                 movies[position].title,
               ),
