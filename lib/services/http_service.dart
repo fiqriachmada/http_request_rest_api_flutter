@@ -24,7 +24,7 @@ class HttpService {
       return movies;
     } else {
       if (kDebugMode) {
-        print('Successfully get API key from ${url}');
+        print('Failed to get API key from ${url}');
       }
       return null;
     }

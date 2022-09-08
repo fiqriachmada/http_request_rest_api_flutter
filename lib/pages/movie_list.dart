@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -61,7 +62,11 @@ class _MovieListState extends State<MovieList> {
               subtitle: Text(
                 'Rating ${movies[position].voteAverage.toString()}',
               ),
-              onTap: () {},
+              onTap: () {
+                if (kDebugMode) {
+                  print(movies[position].title);
+                }
+              },
             ),
           );
         },
