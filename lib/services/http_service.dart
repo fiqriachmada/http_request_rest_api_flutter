@@ -18,6 +18,9 @@ class HttpService {
         print('Successfully get API key from ${url}');
       }
       final jsonResponse = json.decode(result.body);
+      if (kDebugMode) {
+        // print(jsonResponse.toString());
+      }
       final moviesMap = jsonResponse['results'];
       List movies = moviesMap.map((movie) => Movie.fromJson(movie)).toList();
 

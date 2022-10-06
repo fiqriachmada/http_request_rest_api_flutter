@@ -29,13 +29,15 @@ class _MovieListState extends State<MovieList> {
   void initState() {
     service = HttpService();
     initialize();
-
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    final image = "https://image.tmdb.org/t/p/w500";
+    if (kDebugMode) {
+      print('moviesCount $moviesCount');
+    }
+    const image = "https://image.tmdb.org/t/p/w500";
     return Scaffold(
       appBar: AppBar(
         // ignore: prefer_const_constructors
@@ -54,17 +56,18 @@ class _MovieListState extends State<MovieList> {
               leading: CircleAvatar(
                 radius: 30,
                 backgroundImage:
-                    NetworkImage(image + movies![position].posterPath),
+                    NetworkImage(image + movies[position].posterPath),
               ),
               title: Text(
                 movies[position].title,
               ),
               subtitle: Text(
-                'Rating ${movies[position].voteAverage.toString()}',
+                'Rating: ${movies[position].voteAverage.toString()}',
               ),
               onTap: () {
                 if (kDebugMode) {
                   print(movies[position].title);
+                  print(movies[position].voteAverage.toString());
                 }
               },
             ),
