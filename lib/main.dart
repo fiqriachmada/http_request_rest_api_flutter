@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http_request_rest_api_flutter/pages/popular_movie/movie_list_pages.dart';
+import 'package:http_request_rest_api_flutter/pages/popular_movie/popular_movie_list_pages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +26,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MovieList();
+    return const PopularMovieListPages();
   }
 }

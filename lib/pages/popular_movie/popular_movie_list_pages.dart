@@ -5,14 +5,14 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:http_request_rest_api_flutter/pages/popular_movie/popular_movie_detail_pages.dart';
 import 'package:http_request_rest_api_flutter/services/http_service.dart';
 
-class MovieList extends StatefulWidget {
-  const MovieList({Key? key}) : super(key: key);
+class PopularMovieListPages extends StatefulWidget {
+  const PopularMovieListPages({Key? key}) : super(key: key);
 
   @override
-  State<MovieList> createState() => _MovieListState();
+  State<PopularMovieListPages> createState() => _PopularMovieListPagesState();
 }
 
-class _MovieListState extends State<MovieList> {
+class _PopularMovieListPagesState extends State<PopularMovieListPages> {
   int moviesCount = 0;
   List movies = [];
   HttpService service = HttpService();
@@ -72,12 +72,16 @@ class _MovieListState extends State<MovieList> {
                 if (kDebugMode) {
                   print(movies[position].title);
                   print(movies[position].voteAverage.toString());
+                  print(image + movies[position].posterPath.toString());
+                  print(movies[position].overview.toString());
                 }
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => PopularMovieDetailPages(
                       title: movies[position].title.toString(),
+                      image: image + movies[position].posterPath,
+                      overview: movies[position].overview,
                     ),
                   ),
                 );
