@@ -32,9 +32,4 @@ class Movie {
         'overview': instance.overview,
         'posterPath': instance.posterPath,
       };
-  // : id = json['id'],
-  //   title = json['title'],
-  //   voteAverage = json['vote_average'] * 1.0,
-  //   overview = json['overview'],
-  //   posterPath = json['poster_path'];
 }
