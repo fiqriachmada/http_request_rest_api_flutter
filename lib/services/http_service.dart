@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:http_request_rest_api_flutter/model/movie.dart';
+import 'package:http_request_rest_api_flutter/model/popular_movie/movie_model.dart';
 import 'package:http_status_code/http_status_code.dart';
 
 class HttpService {

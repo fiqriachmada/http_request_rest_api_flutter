@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:http_request_rest_api_flutter/pages/popular_movie/popular_movie_detail_pages.dart';
 import 'package:http_request_rest_api_flutter/services/http_service.dart';
 
 class MovieList extends StatefulWidget {
@@ -37,6 +38,9 @@ class _MovieListState extends State<MovieList> {
     if (kDebugMode) {
       print('moviesCount $moviesCount');
     }
+    if (kDebugMode) {
+      print('movies $movies');
+    }
     const image = "https://image.tmdb.org/t/p/w500";
     return Scaffold(
       appBar: AppBar(
@@ -46,7 +50,7 @@ class _MovieListState extends State<MovieList> {
         ),
       ),
       body: ListView.builder(
-        // itemCount: (this.moviesCount == null) ? 0 : this.moviesCount,
+        // itemCount: (moviesCount == null) ? 0 : moviesCount,
         itemCount: moviesCount,
         itemBuilder: (context, int position) {
           return Card(
@@ -69,6 +73,14 @@ class _MovieListState extends State<MovieList> {
                   print(movies[position].title);
                   print(movies[position].voteAverage.toString());
                 }
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PopularMovieDetailPages(
+                      title: movies[position].title.toString(),
+                    ),
+                  ),
+                );
               },
             ),
           );
