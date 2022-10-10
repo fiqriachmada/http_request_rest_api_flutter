@@ -1,9 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:http_request_rest_api_flutter/pages/popular_movie/popular_movie_detail_pages.dart';
-import 'package:http_request_rest_api_flutter/services/http_service.dart';
+import 'package:http_request_rest_api_flutter/services/popular_movie_service.dart';
 
 class PopularMovieListPages extends StatefulWidget {
   const PopularMovieListPages({Key? key}) : super(key: key);
@@ -15,7 +13,7 @@ class PopularMovieListPages extends StatefulWidget {
 class _PopularMovieListPagesState extends State<PopularMovieListPages> {
   int moviesCount = 0;
   List movies = [];
-  HttpService service = HttpService();
+  PopularMovieService service = PopularMovieService();
 
   Future initialize() async {
     movies = [];
@@ -28,7 +26,7 @@ class _PopularMovieListPagesState extends State<PopularMovieListPages> {
 
   @override
   void initState() {
-    service = HttpService();
+    service = PopularMovieService();
     initialize();
     super.initState();
   }

@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:http_request_rest_api_flutter/model/popular_movie/movie_model.dart';
 import 'package:http_status_code/http_status_code.dart';
 
-class HttpService {
+class PopularMovieService {
   final String apiKey = '8cfb855d7b731341ace5b90889b138a1';
   final String baseUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=';
 
